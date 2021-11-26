@@ -1,5 +1,5 @@
-{"baseUrl":"http://localhost:81/"
-    
+{"baseUrl":"http://localhost:81/",
+    "defaultCommandTimeout": 200000  
 }
 
 

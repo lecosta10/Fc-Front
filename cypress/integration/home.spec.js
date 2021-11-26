@@ -3,12 +3,11 @@
 import Home from "../support/pages/Home";
 
 beforeEach(() => {
-    cy.visit('/');
-    cy.wait(20000);
+    cy.visit('/')
 })
 describe ('Home C6', () =>{
     it ('Deve exibir todas as funcionalidades da Home', ()=> {
-        cy.wait(15000);
+        cy.wait(20000);
         Home.View_home();
         Home.carousel();
     });

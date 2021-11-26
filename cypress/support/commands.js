@@ -31,7 +31,9 @@ beforeEach(() => {
 
     //Comando para deixar em tamanho Mobile
       cy.viewport(375, 667) 
-      cy.viewport('iphone-x') 
+      cy.viewport('iphone-x') ;
+
+     // Cypress.config('pageLoadTimeout') // => 200000
     
 
   })

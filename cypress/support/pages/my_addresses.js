@@ -2,16 +2,13 @@
 class my_addresses {
     registered_addresses(){
         cy.visit('/enderecos')
-        cy.wait(20000);
         cy.contains('Endereços cadastrados').should('be.visible')
         cy.contains('PADRÃO').should('be.visible') 
     } 
     register(){
         cy.visit('/enderecos');
-        cy.wait(10000);
         cy.get('.makeStyles-ctaWrapper-17 > .MuiButtonBase-root > .MuiButton-label').should('have.text', 'Adicionar novo endereço').click();
-        cy.wait(20000);
-        //cy.contains('C6').should('be.visible');
+        cy.contains('C6').should('be.visible');
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Casa');
         cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').type('My House');
         cy.get(':nth-child(3) > .MuiInputBase-root > .MuiInputBase-input').type('99999999');
@@ -26,9 +23,7 @@ class my_addresses {
     }
     Required_fields(){
         cy.visit('/enderecos')
-        cy.wait(10000);
         cy.get('.makeStyles-ctaWrapper-17 > .MuiButtonBase-root > .MuiButton-label').click();
-        cy.wait(20000);
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Casa')
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
@@ -55,14 +50,11 @@ class my_addresses {
         cy.contains('Este campo é obrigatório').should('be.visible')
         cy.get(':nth-child(9) > .MuiInputBase-root > .MuiInputBase-input').type('Casa')
         cy.get(':nth-child(10) > .MuiInputBase-root > .MuiInputBase-input').type('Em frente ao mercado')
-        cy.contains('Salvar').click(); //não está salvando
         cy.contains('Voltar').click(); //botão voltar
     }
     edit_address(){
         cy.visit('/enderecos')
-        cy.wait(10000);
         cy.contains('Editar').click()
-        cy.wait(20000);
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Ap')
         cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').clear()
@@ -82,7 +74,6 @@ class my_addresses {
         cy.get(':nth-child(9) > .MuiInputBase-root > .MuiInputBase-input').clear()
         cy.get(':nth-child(9) > .MuiInputBase-root > .MuiInputBase-input').type('Prédio')
         cy.contains('Salvar').click(); //não está salvando
-        cy.contains('Voltar').click(); //botão voltar
     }
 }
 export default new my_addresses();
