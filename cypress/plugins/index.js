@@ -23,16 +23,39 @@ module.exports = (on) => {
  
 }*/
 
-module.exports = (on, config) => {
-   on('before:browser:launch', (browser, launchOptions) => {
+/*Apagado*/
+//module.exports = (on, config) => {
+   //on('before:browser:launch', (browser, launchOptions) => {
      // supply the absolute path to an unpacked extension's folder
      // NOTE: extensions cannot be loaded in headless Chrome
-     launchOptions.extensions.push('C:\Users\2105091187\Documents\Cypress_Plugin')
+     //launchOptions.extensions.push('C:\Users\2105091187\Documents\Cypress_Plugin')
  
-     return launchOptions
-   })
- }
+    // return launchOptions
+  // })
+ //}
 
+ const path = require('path')
+module.exports = (on, config) => {
+  on('before:browser:launch', (browser, launchOptions) => {
+    console.log('launching browser %o', browser)
+
+    // only load React DevTools extension
+    // when opening Chrome in interactive mode
+    if (browser.family === 'chromium') {
+      // we could also restrict the extension
+      // to only load when "browser.isHeaded" is true
+      const extensionFolder = path.resolve(__dirname, '..', '..', '4.2.1_0')
+
+      console.log('adding React DevTools extension from', extensionFolder)
+      launchOptions.args.push(`--load-extension=${extensionFolder}`)
+
+      return launchOptions
+    }
+  })
+}
+
+
+ 
 
   
 

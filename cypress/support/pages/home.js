@@ -14,10 +14,10 @@ class home {
         cy.contains('Destaques').should('be.visible')
         cy.contains('Departamentos').should('be.visible')
         cy.contains('Marcas').should('be.visible')
-        cy.contains('Ofertas').should('be.visible')
-        cy.contains('Novidades').should('be.visible')
-        cy.contains('Destaques').should('be.visible')
-        cy.contains('Histórico').should('be.visible')
+        //cy.contains('Ofertas').should('be.visible')
+        //cy.contains('Novidades').should('be.visible')
+       // cy.contains('Destaques').should('be.visible')
+       // cy.contains('Histórico').should('be.visible')
     }
 }
 export default new home();
