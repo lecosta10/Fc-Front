@@ -60,6 +60,7 @@ class my_addresses {
         cy.visit('/enderecos')
         cy.wait(8000);
         cy.contains('Editar').click()
+        cy.wait(8000);
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Ap')
         cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').clear()
