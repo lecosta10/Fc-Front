@@ -14,7 +14,7 @@ pipeline {
                 bat 'npm run cypress:home-test'
             }
         }
-        stage('Meus endereços') {
+        stage('Meus enderecos') {
             steps {
                 git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
                 bat 'npm run cypress:my_addresses-test'
