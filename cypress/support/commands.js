@@ -33,7 +33,7 @@ beforeEach(() => {
       cy.viewport(375, 667) 
       cy.viewport('iphone-x') ;
 
-     // Cypress.config('pageLoadTimeout') // => 200000
+      Cypress.config('pageLoadTimeout')
     
 
   })
