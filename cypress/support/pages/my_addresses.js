@@ -2,12 +2,15 @@
 class my_addresses {
     registered_addresses(){
         cy.visit('/enderecos')
+        cy.wait(10000);
         cy.contains('Endereços cadastrados').should('be.visible')
         cy.contains('PADRÃO').should('be.visible') 
     } 
     register(){
         cy.visit('/enderecos');
+        cy.wait(10000);
         cy.get('.makeStyles-ctaWrapper-17 > .MuiButtonBase-root > .MuiButton-label').should('have.text', 'Adicionar novo endereço').click();
+        cy.wait(10000);
         cy.contains('C6').should('be.visible');
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Casa');
         cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').type('My House');
@@ -23,6 +26,7 @@ class my_addresses {
     }
     Required_fields(){
         cy.visit('/enderecos')
+        cy.wait(8000);
         cy.get('.makeStyles-ctaWrapper-17 > .MuiButtonBase-root > .MuiButton-label').click();
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Casa')
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
@@ -54,6 +58,7 @@ class my_addresses {
     }
     edit_address(){
         cy.visit('/enderecos')
+        cy.wait(8000);
         cy.contains('Editar').click()
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Ap')
