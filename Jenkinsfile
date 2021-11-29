@@ -7,7 +7,7 @@ pipeline {
                 bat "npm ci"
             }
         }
-        git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Cypress-CI'
+        git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
         stage('Home') {
             steps {
                // git url: 'https://github.com/lecosta10/'
