@@ -7,22 +7,23 @@ pipeline {
                 bat "npm ci"
             }
         }
+        git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Cypress-CI'
         stage('Home') {
             steps {
-               // git url: 'https://github.com/lecosta10/fc-TestesFront'
-                git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/fc-TestesFront'
+               // git url: 'https://github.com/lecosta10/'
+                
                 bat 'npm run cypress:home-test'
             }
         }
         stage('Meus endereços') {
             steps {
-                git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/fc-TestesFront'
+               
                 bat 'npm run cypress:my_addresses-test'
             }
         }
         stage('Meus pedidos') {
             steps {
-                git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/fc-TestesFront'
+                
                 bat 'npm run cypress:My_requests-test'
             }
         }
