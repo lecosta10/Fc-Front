@@ -2,7 +2,7 @@
 class my_addresses {
     registered_addresses(){
         cy.visit('/enderecos')
-        cy.wait(10000);
+        cy.wait(20000);
         cy.contains('Endereços cadastrados').should('be.visible')
         cy.contains('PADRÃO').should('be.visible') 
     } 
