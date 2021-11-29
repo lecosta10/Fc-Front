@@ -1,6 +1,6 @@
 {"baseUrl":"http://localhost:81/",
-    "defaultCommandTimeout": 1000000,
-    "pageLoadTimeout": 190000 
+    "defaultCommandTimeout": 2000000,
+    "pageLoadTimeout": 2200000 
 }
 
 
