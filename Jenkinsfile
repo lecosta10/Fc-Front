@@ -28,9 +28,9 @@ pipeline {
         }
         
     }
-    post{
-        always{
-            junit allowEmptyResults: true, testResults: 'C:/ProgramData/Jenkins/.jenkins/jobs/C6_Front/builds/*.xml''
-        }
-    }
+  //  post{
+    //    always{
+      //      junit allowEmptyResults: true, testResults: 'C:/ProgramData/Jenkins/.jenkins/jobs/C6_Front/builds/*.xml''
+      //  }
+   // }
 }
