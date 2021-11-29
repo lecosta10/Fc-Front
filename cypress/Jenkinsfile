@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+       stage('Setup'){
+            steps{
+                bat "npm ci"
+            }
+        }
+        stage('Unit Tests') {
+            steps {
+                git url: 'https://github.com/lecosta10/fc-TestesFront'
+                bat 'npm test'
+            }
+        }
+        
+    }
+}
