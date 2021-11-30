@@ -26,7 +26,7 @@ class my_addresses {
     }
     Required_fields(){
         cy.visit('/enderecos')
-        cy.wait(8000);
+        cy.wait(20000);
         cy.get('.makeStyles-ctaWrapper-17 > .MuiButtonBase-root > .MuiButton-label').click();
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Casa')
         cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
