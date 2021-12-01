@@ -2,12 +2,10 @@
 class My_requests {
     Orders_placed(){
         cy.visit('pedidos/')
-        cy.wait(10000);
         cy.contains('Pedidos').should('be.visible')  
     }
     order_details(){
         cy.visit('/pedidos/67')
-        cy.wait(10000);
         cy.contains('Detalhes do Pedido').should('be.visible')
         cy.get(':nth-child(11) > .MuiButton-label').should('be.visible')
         cy.get(':nth-child(10) > .MuiButton-label').should('be.visible')

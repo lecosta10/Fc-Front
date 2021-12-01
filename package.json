@@ -8,7 +8,8 @@
     "test": "cypress run",
     "cypress:home-test": "cypress run --spec cypress/integration/home.spec.js",
     "cypress:my_addresses-test": "cypress run --spec cypress/integration/my_addresses.spec.js",
-    "cypress:My_requests-test": "cypress run --spec cypress/integration/My_requests.spec.js"
+    "cypress:My_requests-test": "cypress run --spec cypress/integration/My_requests.spec.js",
+    "cy:run-dash": "npx cypress run --record --key 087bc0ae-4730-4c53-8956-07a84bf95ee1"
   },
   "keywords": [],
   "author": "",
