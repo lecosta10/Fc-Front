@@ -26,11 +26,13 @@ pipeline {
                 bat 'npm run cypress:My_requests-test'
             }
         }
+        stage('Registrar no dashboard da Via') {
+            steps {
+                git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
+                bat 'npm run cy:run-dash'
+            }
+        }
         
     }
-  //  post{
-    //    always{
-      //      junit allowEmptyResults: true, testResults: 'C:/ProgramData/Jenkins/.jenkins/jobs/C6_Front/builds/*.xml''
-      //  }
-   // }
+   
 }
