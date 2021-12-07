@@ -1,6 +1,6 @@
 {"baseUrl":"http://localhost:81/",
-    "defaultCommandTimeout": 4000000,
-    "pageLoadTimeout": 4200000 ,
+    "defaultCommandTimeout": 20000000,
+    "pageLoadTimeout": 20200000 ,
     
         "projectId": "gdyk94"
     

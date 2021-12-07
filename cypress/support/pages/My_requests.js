@@ -2,7 +2,10 @@
 class My_requests {
     Orders_placed(){
         cy.visit('pedidos/')
-        cy.contains('Pedidos').should('be.visible')  
+        cy.contains('Meus pedidos').should('be.visible')  
+        cy.contains('N').should('be.visible')
+        cy.get('.makeStyles-root-2').should('be.visible')
+
     }
     order_details(){
         cy.visit('/pedidos/67')

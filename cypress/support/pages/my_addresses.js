@@ -2,80 +2,75 @@
 class my_addresses {
     registered_addresses(){
         cy.visit('/enderecos')
-        cy.contains('Endereços cadastrados').should('be.visible')
+        cy.contains('Meus Endereços').should('be.visible')
         cy.contains('PADRÃO').should('be.visible') 
     } 
     register(){
         cy.visit('/enderecos');
-        cy.get('.makeStyles-ctaWrapper-17 > .MuiButtonBase-root > .MuiButton-label').click();
-        cy.contains('C6').should('be.visible');
-        cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Casa');
-        cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').type('My House');
-        cy.get(':nth-child(3) > .MuiInputBase-root > .MuiInputBase-input').type('99999999');
-        cy.get(':nth-child(4) > .MuiInputBase-root > .MuiInputBase-input').type('São Paulo');
-        cy.get(':nth-child(5) > .MuiInputBase-root > .MuiInputBase-input').type('Moema');
-        cy.get(':nth-child(6) > .MuiInputBase-root > .MuiInputBase-input').type('Parque Alvorada');
-        cy.get(':nth-child(7) > .MuiInputBase-root > .MuiInputBase-input').type('Rua das flores');
-        cy.get(':nth-child(8) > .MuiInputBase-root > .MuiInputBase-input').type('123');
-        cy.get(':nth-child(9) > .MuiInputBase-root > .MuiInputBase-input').type('Casa');
-        cy.get(':nth-child(10) > .MuiInputBase-root > .MuiInputBase-input').type('Em frente ao mercado');
-        cy.contains('Salvar').click(); //não está salvando
+        cy.get('[data-cy=addressAddButton] > .MuiButton-label').should('contain.text', 'Adicionar novo endereço').click();
+        cy.get('[data-cy=addressFormNickname]').type('Casa');
+        cy.get('[data-cy=addressFormRecipient]').type('My House');
+        cy.get('[data-cy=addressFormPostalCode]').type('99999999');
+        cy.get('[data-cy=addressFormState]').type('São Paulo');
+        cy.get('[data-cy=addressFormCity]').type('Moema');
+        cy.get('[data-cy=addressFormNeighborhood]').type('Parque Alvorada');
+        cy.get('[data-cy=addressFormStreet]').type('Rua das flores');
+        cy.get('[data-cy=addressFormNumber]').type('123');
+        cy.get('.MuiBox-root-145 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Casa');
+        cy.get('.MuiBox-root-147 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Em frente ao mercado');
+        cy.get('[data-cy=addressFormSave]').click(); 
     }
     Required_fields(){
         cy.visit('/enderecos')
-       // cy.wait(20000);
-        cy.get('.makeStyles-ctaWrapper-17 > .MuiButtonBase-root > .MuiButton-label').click();
-        cy.wait(20000);
-        cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Casa')
-        cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressAddButton] > .MuiButton-label').should('contain.text', 'Adicionar novo endereço').click();
+        cy.get('[data-cy=addressFormNickname]').type('Casa')
+        cy.get('[data-cy=addressFormNickname]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').type('My House')
-        cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressFormRecipient]').type('My House')
+        cy.get('[data-cy=addressFormRecipient]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(3) > .MuiInputBase-root > .MuiInputBase-input').type('99999999')
-        cy.get(':nth-child(3) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressFormPostalCode]').type('99999999')
+        cy.get('[data-cy=addressFormPostalCode]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(4) > .MuiInputBase-root > .MuiInputBase-input').type('São Paulo')
-        cy.get(':nth-child(4) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressFormState]').type('São Paulo')
+        cy.get('[data-cy=addressFormState]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(5) > .MuiInputBase-root > .MuiInputBase-input').type('Moema')
-        cy.get(':nth-child(5) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressFormCity]').type('Moema')
+        cy.get('[data-cy=addressFormCity]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(6) > .MuiInputBase-root > .MuiInputBase-input').type('Parque Alvorada')
-        cy.get(':nth-child(6) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressFormNeighborhood]').type('Parque Alvorada')
+        cy.get('[data-cy=addressFormNeighborhood]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(7) > .MuiInputBase-root > .MuiInputBase-input').type('Rua das flores')
-        cy.get(':nth-child(7) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressFormStreet]').type('Rua das flores')
+        cy.get('[data-cy=addressFormStreet]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(8) > .MuiInputBase-root > .MuiInputBase-input').type('123')
-        cy.get(':nth-child(8) > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('[data-cy=addressFormNumber]').type('123')
+        cy.get('[data-cy=addressFormNumber]').clear()
         cy.contains('Este campo é obrigatório').should('be.visible')
-        cy.get(':nth-child(9) > .MuiInputBase-root > .MuiInputBase-input').type('Casa')
-        cy.get(':nth-child(10) > .MuiInputBase-root > .MuiInputBase-input').type('Em frente ao mercado')
-        cy.contains('Voltar').click(); //botão voltar
     }
     edit_address(){
         cy.visit('/enderecos')
-        cy.contains('Editar').click()
-        cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(1) > .MuiInputBase-root > .MuiInputBase-input').type('Ap')
-        cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(2) > .MuiInputBase-root > .MuiInputBase-input').type('My Ap')
-        cy.get(':nth-child(3) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(3) > .MuiInputBase-root > .MuiInputBase-input').type('88888888')
-        cy.get(':nth-child(4) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(4) > .MuiInputBase-root > .MuiInputBase-input').type('Rondonia')
-        cy.get(':nth-child(5) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(5) > .MuiInputBase-root > .MuiInputBase-input').type('Porto Velho')
-        cy.get(':nth-child(6) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(6) > .MuiInputBase-root > .MuiInputBase-input').type('Nova colina')
-        cy.get(':nth-child(7) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(7) > .MuiInputBase-root > .MuiInputBase-input').type('Rua Isabel')
-        cy.get(':nth-child(8) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(8) > .MuiInputBase-root > .MuiInputBase-input').type('674')
-        cy.get(':nth-child(9) > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get(':nth-child(9) > .MuiInputBase-root > .MuiInputBase-input').type('Prédio')
-        cy.contains('Salvar').click(); //não está salvando
+        cy.contains('Alterar').click()
+        cy.get('[data-cy=addressFormNickname]').clear()
+        cy.get('[data-cy=addressFormNickname]').type('Ap')
+        cy.get('[data-cy=addressFormRecipient]').clear()
+        cy.get('[data-cy=addressFormRecipient]').type('My Ap')
+        cy.get('[data-cy=addressFormPostalCode]').clear()
+        cy.get('[data-cy=addressFormPostalCode]').type('88888888')
+        cy.get('[data-cy=addressFormState]').clear()
+        cy.get('[data-cy=addressFormState]').type('Rondonia')
+        cy.get('[data-cy=addressFormCity]').clear()
+        cy.get('[data-cy=addressFormCity]').type('Porto Velho')
+        cy.get('[data-cy=addressFormNeighborhood]').clear()
+        cy.get('[data-cy=addressFormNeighborhood]').type('Nova colina')
+        cy.get('[data-cy=addressFormStreet]').clear()
+        cy.get('[data-cy=addressFormStreet]').type('Rua Isabel')
+        cy.get('[data-cy=addressFormNumber]').clear()
+        cy.get('[data-cy=addressFormNumber]').type('674')
+        cy.get('.MuiBox-root-145 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('.MuiBox-root-145 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Prédio')
+        cy.get('.MuiBox-root-147 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('É aqui')
+        cy.get('[data-cy=addressFormSave]').click(); 
     }
 }
 export default new my_addresses();
