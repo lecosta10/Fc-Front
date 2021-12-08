@@ -1,7 +1,6 @@
 /// <reference types="cypress"/>
-
 import my_addresses from "../support/pages/my_addresses";
-describe ('Menu | Meus Endereços', () =>{
+describe.only ('Menu | Meus Endereços', () =>{
     it ('Validar endereços cadastrados', ()=> {
        my_addresses.registered_addresses();
     });
