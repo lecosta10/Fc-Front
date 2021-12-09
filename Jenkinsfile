@@ -43,9 +43,6 @@ pipeline {
                 git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
                 bat 'npm run cy:run-dash'
             }
-        }
-
-        
+        } 
     }
-   
 }

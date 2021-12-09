@@ -2,7 +2,7 @@
 class my_addresses {
     registered_addresses(){
         cy.visit('/enderecos')
-        cy.contains('Meus Endereços').should('be.visible')
+        cy.get('[data-cy=barTitle]').should('be.visible')
         cy.contains('PADRÃO').should('be.visible') 
     } 
     register(){
