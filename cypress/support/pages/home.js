@@ -21,3 +21,6 @@ class home {
     }
 }
 export default new home();
+
+
+
