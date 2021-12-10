@@ -29,7 +29,7 @@ pipeline {
         stage('PDP') {
             steps {
                 git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
-                bat 'npm run cypress:product_page'
+                bat 'npm run cypress:product'
             }
         }
           stage('Carrinho') {
