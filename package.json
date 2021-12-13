@@ -12,6 +12,7 @@
     "cypress:product": "cypress run --spec cypress/integration/product.spec.js",
     "cypress:Cart": "cypress run --spec cypress/integration/Cart.spec.js",
     "cypress:checkout": "cypress run --spec cypress/integration/checkout.spec.js",
+    "cypress:payment": "cypress run --spec cypress/integration/payment.spec.js",
     "cy:run-dash": "npx cypress run --record --key 087bc0ae-4730-4c53-8956-07a84bf95ee1"
   },
   "keywords": [],

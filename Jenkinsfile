@@ -38,10 +38,16 @@ pipeline {
                 bat 'npm run cypress:Cart'
             }
         }
-         stage('Checkout') {
+        stage('Checkout') {
             steps {
                 git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
                 bat 'npm run cypress:checkout'
+            }
+        }
+        stage('Finalização de pedido') {
+            steps {
+                git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
+                bat 'npm run cypress:payment'
             }
         }
         stage('Registrar no dashboard da Via') {
