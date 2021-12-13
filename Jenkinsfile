@@ -38,7 +38,13 @@ pipeline {
                 bat 'npm run cypress:Cart'
             }
         }
-         stage('Registrar no dashboard da Via') {
+         stage('Checkout') {
+            steps {
+                git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
+                bat 'npm run cypress:checkout'
+            }
+        }
+        stage('Registrar no dashboard da Via') {
             steps {
                 git credentialsId: 'Github_Login', url: 'https://github.com/lecosta10/Fc-Front'
                 bat 'npm run cy:run-dash '
