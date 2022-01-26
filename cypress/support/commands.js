@@ -24,11 +24,7 @@
 // -- This will overwrite an existing command --
 
 beforeEach(() => {
-    cy.intercept('', (req) => {
-      req.headers['customerid'] = '01FHZVJK47HZWZ0P46FQ4Q1D21'
-    })
-    cy.intercept('/api/').as('requests')
-
+    
     //Comando para deixar em tamanho Mobile
       cy.viewport(375, 667) 
       cy.viewport('iphone-x') ;

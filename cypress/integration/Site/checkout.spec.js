@@ -1,10 +1,17 @@
 /// <reference types="cypress"/>
 
-import checkout from "../support/pages/checkout";
+import checkout from "../../support/pages/Site/checkout";
 
 describe ('Checkout', () =>{
+
+    beforeEach(() => {
+        cy.intercept('', (req) => {
+          req.headers['customerid'] = '01FS50Q28HE54F1R4GX4AQ09GE'
+        })
+        cy.intercept('/api/').as('requests')
+      })
     it ('Devo fazer todo o fluxo de compra até chegar no checkout', ()=> {
-        cy.visit('/produtos/97157135-70b2-4c43-a52e-e7632a18fb99');
+        cy.visit('/produtos/e021895a-9f37-4be1-b5ef-41045e689722');
         cy.get('[data-cy=ppFabAction]').click();
         cy.get('[data-cy=cartSubmitButton]').click();
     });

@@ -1,8 +1,15 @@
 /// <reference types="cypress"/>
-import Cart from "../support/pages/Cart";
+import Cart from "../../support/pages/Site/Cart";
 describe ('Carrinho', () =>{
+
+    beforeEach(() => {
+        cy.intercept('', (req) => {
+          req.headers['customerid'] = '01FS50Q28HE54F1R4GX4AQ09GE'
+        })
+        cy.intercept('/api/').as('requests')
+      })
     it ('Devo validar exibição dos valores (Valor do produto, frete, valor total e foma de pagamento)', ()=> {
-        cy.visit('/produtos/51063b8e-7db4-4032-b5a9-37c8bddfa1f0')
+        cy.visit('/produtos/28399ba0-4161-483d-95dc-b24a95edb1d0')
         cy.get('[data-cy=ppFabAction]').click()
         Cart.Values();
     });

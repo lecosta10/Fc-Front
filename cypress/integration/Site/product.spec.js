@@ -1,8 +1,15 @@
 /// <reference types="cypress"/>
-import product_page from "../support/pages/product";
+import product_page from "../../support/pages/Site/product";
 describe ('PDP', () =>{
+
+   beforeEach(() => {
+      cy.intercept('', (req) => {
+        req.headers['customerid'] = '01FS50Q28HE54F1R4GX4AQ09GE'
+      })
+      cy.intercept('/api/').as('requests')
+    })
     it ('Devo validar e visualizar dados da PDP', ()=> {
-        cy.visit('/produtos/51063b8e-7db4-4032-b5a9-37c8bddfa1f0')
+        cy.visit('/produtos/28399ba0-4161-483d-95dc-b24a95edb1d0')
         product_page.View_productpage();
     });
     it ('Devo visualizar o detalhe do produto', ()=> {

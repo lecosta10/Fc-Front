@@ -13,7 +13,7 @@ class home {
     }
     carousel(){
         cy.contains('Destaques').should('be.visible')
-       // cy.contains('Departamentos').should('be.visible')
+        cy.contains('Compre por departamentos').should('be.visible')
         cy.contains('marcas').should('be.visible')
         cy.contains('Ofertas').should('be.visible')
         cy.contains('Novidades').should('be.visible')

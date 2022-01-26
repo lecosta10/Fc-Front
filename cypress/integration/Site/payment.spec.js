@@ -1,10 +1,19 @@
 /// <reference types="cypress"/>
 
-import payment from "../support/pages/payment";
+import payment from "../../support/pages/Site/payment";
+
+
 
 describe ('Pagamento e Finalização de pedido', () =>{
+
+   beforeEach(() => {
+      cy.intercept('', (req) => {
+        req.headers['customerid'] = '01FS50Q28HE54F1R4GX4AQ09GE'
+      })
+      cy.intercept('/api/').as('requests')
+    })
     it ('Devo fazer todo o fluxo de compra até chegar na tela de pagamento', ()=> {
-        cy.visit('/produtos/97157135-70b2-4c43-a52e-e7632a18fb99');
+        cy.visit('/produtos/e021895a-9f37-4be1-b5ef-41045e689722');
         cy.get('[data-cy=ppFabAction]').click();
         cy.get('[data-cy=cartSubmitButton]').click();
         cy.contains('Continuar para pagamento').click();
@@ -22,10 +31,12 @@ describe ('Pagamento e Finalização de pedido', () =>{
       cy.get('[data-cy=barTitle]').should('be.visible')
         cy.get('[data-cy=orderStatus]').should('be.visible')
         cy.get('[data-cy=orderResume]').should('be.visible')
-        cy.get('.makeStyles-root-138 > .MuiTypography-body1').should('be.visible')
-        cy.get(':nth-child(7) > .makeStyles-orderResume-145').should('be.visible')
-        cy.get(':nth-child(2) > :nth-child(15)').should('be.visible')
-        cy.get(':nth-child(16) > .makeStyles-orderResume-145').should('be.visible')
+        cy.contains('Comprador').should('be.visible')
+        cy.contains('Destinatário').should('be.visible')
+        cy.contains('Dados da compra').should('be.visible')
+        cy.contains('Vendido por').should('be.visible')
+        cy.contains('Forma de pagamento').should('be.visible')
+        cy.contains('R$').should('be.visible')
      });
      it ('Devo visualizar os botões ver meu pedido e ir para meus pedidos', ()=> {
         cy.get('[data-cy=openOrder]').should('be.visible')

@@ -1,7 +1,15 @@
 /// <reference types="cypress"/>
-import my_addresses from "../support/pages/my_addresses";
+import my_addresses from "../../support/pages/Site/my_addresses";
+
 describe ('Menu | Meus Endereços', () =>{
-    it ('Validar endereços cadastrados', ()=> {
+
+   beforeEach(() => {
+      cy.intercept('', (req) => {
+        req.headers['customerid'] = '01FS50Q28HE54F1R4GX4AQ09GE'
+      })
+      cy.intercept('/api/').as('requests')
+    })
+    it('Validar endereços cadastrados', ()=> {
        my_addresses.registered_addresses();
     });
     it ('Validar cadastrar um novo endereço', ()=> {

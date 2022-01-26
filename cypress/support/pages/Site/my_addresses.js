@@ -2,12 +2,11 @@
 class my_addresses {
     registered_addresses(){
         cy.visit('/enderecos')
-        cy.get('[data-cy=barTitle]').should('be.visible')
         cy.contains('PADRÃO').should('be.visible') 
     } 
     register(){
         cy.visit('/enderecos');
-        cy.get('[data-cy=addressAddButton] > .MuiButton-label').should('contain.text', 'Adicionar novo endereço').click();
+        cy.get('[data-cy=addressAddButton]').should('contain.text', 'Adicionar novo endereço').click();
         cy.get('[data-cy=addressFormNickname]').type('Casa');
         cy.get('[data-cy=addressFormRecipient]').type('My House');
         cy.get('[data-cy=addressFormPostalCode]').type('99999999');
@@ -16,8 +15,8 @@ class my_addresses {
         cy.get('[data-cy=addressFormNeighborhood]').type('Parque Alvorada');
         cy.get('[data-cy=addressFormStreet]').type('Rua das flores');
         cy.get('[data-cy=addressFormNumber]').type('123');
-        cy.get('.MuiBox-root-145 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Casa');
-        cy.get('.MuiBox-root-147 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Em frente ao mercado');
+        cy.get('.MuiBox-root-47 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('casa');
+        cy.get('input[name="reference_point"]').type('Em frente ao mercado');
         cy.get('[data-cy=addressFormSave]').click(); 
     }
     Required_fields(){
@@ -67,9 +66,10 @@ class my_addresses {
         cy.get('[data-cy=addressFormStreet]').type('Rua Isabel')
         cy.get('[data-cy=addressFormNumber]').clear()
         cy.get('[data-cy=addressFormNumber]').type('674')
-        cy.get('.MuiBox-root-145 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').clear()
-        cy.get('.MuiBox-root-145 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Prédio')
-        cy.get('.MuiBox-root-147 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('É aqui')
+        cy.get('.MuiBox-root-47 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').clear()
+        cy.get('.MuiBox-root-47 > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Prédio')
+        cy.get('input[name="reference_point"]').clear();
+        cy.get('input[name="reference_point"]').type('É aqui')
         cy.get('[data-cy=addressFormSave]').click(); 
     }
 }

@@ -23,7 +23,7 @@ class Cart{
         cy.get('[data-cy=barTitle]').should('be.visible')
     }
     add_product(){
-        cy.visit('/produtos/97157135-70b2-4c43-a52e-e7632a18fb99')
+        cy.visit('/produtos/e021895a-9f37-4be1-b5ef-41045e689722')
         cy.get('[data-cy=ppFabAction]').click();
     }
     remove(){

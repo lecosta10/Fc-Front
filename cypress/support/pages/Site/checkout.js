@@ -4,14 +4,14 @@ class checkout {
         cy.get('[data-cy=barTitle]').should('be.visible')
         cy.get('[data-cy=currentAddress] > :nth-child(2)').should('be.visible');
         cy.get('[data-cy=changeAddressButton] > .MuiButton-label').should('be.visible')
-        cy.get('.makeStyles-freightValue-105').should('be.visible')
-        cy.get('.makeStyles-root-108').should('be.visible')
+        cy.get('.makeStyles-freightValue-107').should('be.visible')
+        cy.get('.makeStyles-root-110').should('be.visible')
         cy.contains('Vendido e entregue por').should('be.visible')
     }
     change_address(){
         cy.get('[data-cy=changeAddressButton] > .MuiButton-label').click();
         cy.contains('Selecione o endereço de entrega').should('be.visible')
-        cy.get('[data-cy=addressSelectCard-911243]').click()
+        cy.get('[data-cy=addressSelectCard-943297] > [data-cy=addressSelectControl] > .MuiFormControlLabel-label > .MuiTypography-body2').click()
         cy.get('[data-cy=confirmAddressChange] > .MuiButton-label').click();
     }
     new_address(){
